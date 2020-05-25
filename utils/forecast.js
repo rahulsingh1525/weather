@@ -5,18 +5,18 @@ const forecast = (lat,long,callback) =>{
     request({url, json: true},(error,{ body }) =>{
         console.log(body.current.temperature)
         if(error){
-            callback("Unable to connect to url !!")
+            callback("Unable to connect to weather service !!",undefined)
         }
         else if(body.error){
             console.log(body)
-            callback( body.error )
+            callback('unable to find location ', undefined)
         }
         else{
-            const {temperature,cloudcover} = body.current
-            callback(undefined,{
-                temperature,
-                rain: cloudcover
-            })
+            const temperature = body.current.temperature
+            const cloudcover = body.current.cloudcover
+            const name = body.location.name  
+            console.log("from forecast code: " , name)
+            callback(undefined,{temperature,cloudcover,name})
         }
     })
 }

@@ -59,10 +59,11 @@ app.get('/weather', (req,res) =>{
                     error: "Unable to find the weather forecase"
                 })
             }
-            const{temperature,rain} = data
-            console.log(temperature,' ', rain)
+            const{temperature,rain,name} = data
+            console.log(temperature,' ', rain, ' ', name)
             res.send({
-                forecast : "The temperature is " + temperature + " degrees out. There is " + rain +"% chance of rain"
+                forecast : "The temperature is " + temperature + " degrees out. There is " + rain +"% chance of rain",
+                location : name
             })
         })        
     })
