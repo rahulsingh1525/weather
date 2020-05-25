@@ -1,7 +1,7 @@
 //import { response } from "express"
 
 console.log("client side java script  is loaded")
-
+console.log("Hi")
 fetch("http://puzzle.mead.io/puzzle").then((response) =>{
     response.json().then((data) =>{
         console.log(data)
